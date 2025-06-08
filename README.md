@@ -13,7 +13,7 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
     - Pi UI has a "Load Info" button that fetches session config from Firestore and writes it locally to `session_config.json`.
 4. **Attendance Tracking**:
     - When “Start Session” is clicked, MAC address tracking (`full_log.py`) begins.
-    - When “Start Face Recognition” is clicked, MAC tracking stops and face recognition (`run_recognition.py`) begins.
+    - When “Start Face Recognition” is clicked, MAC tracking stops and face recognition (`run_recognition_stream.py`) begins.
 5. **Log Upload**:
     - After “End Session”, logs are finalized and synced to Firebase under the correct `sessions/{course_session}` document.
 
