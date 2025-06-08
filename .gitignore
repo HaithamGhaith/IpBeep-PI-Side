@@ -19,3 +19,9 @@ static/
 
 # Ignore system files
 .DS_Store
+
+# Ignore unused files
+.track_connections.py
+.run_recognition.py
+.encodings.pkl
+.fast_reup.sh
