@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Haitham Ghaith",
+    "student_id": "155577",
+    "ip": "192.168.4.43",
+    "mac": "3e:b5:5a:c0:3a:dd",
+    "photo_path": "captures/155577_20250507-081900.jpg",
+    "timestamp": "20250507-081900"
+  },
+  {
+    "name": "Testing",
+    "student_id": "404",
+    "ip": "192.168.4.21",
+    "mac": "00:ae:fa:59:7c:38",
+    "photo_path": "captures/404_20250507-081929.jpg",
+    "timestamp": "20250507-081929"
+  },
+  {
+    "name": "kiswani",
+    "student_id": "202010048",
+    "ip": "192.168.4.31",
+    "mac": "56:85:b9:c8:14:6f",
+    "photo_path": "captures/202010048_20250516-072023.jpg",
+    "timestamp": "20250516-072023"
+  },
+  {
+    "name": "Osama Al Mughrabi",
+    "student_id": "33069",
+    "ip": "192.168.4.16",
+    "mac": "9e:83:53:b7:eb:32",
+    "photo_path": "captures/33069_20250525-061240.jpg",
+    "timestamp": "20250525-061240"
+  }
+]

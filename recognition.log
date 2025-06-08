@@ -1,0 +1,135 @@
+2025-05-28 13:06:33,818 - INFO - Successfully loaded face encodings
+2025-05-28 13:06:33,819 - INFO - Successfully loaded session config
+2025-05-28 13:06:33,856 - INFO - Initialization successful.
+2025-05-28 13:06:33,857 - INFO - Camera now open.
+2025-05-28 13:06:33,861 - INFO - Camera configuration has been adjusted!
+2025-05-28 13:06:33,868 - INFO - Configuration successful!
+2025-05-28 13:06:33,940 - INFO - Camera started
+2025-05-28 13:06:34,940 - INFO - Successfully started camera
+2025-05-28 13:06:34,969 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8090
+ * Running on http://192.168.1.144:8090
+2025-05-28 13:06:34,970 - INFO - [33mPress CTRL+C to quit[0m
+2025-05-28 13:06:35,517 - WARNING - Frame skipped due to slow recognition: 0.238s
+2025-05-28 13:06:35,750 - WARNING - Frame skipped due to slow recognition: 0.228s
+2025-05-28 13:06:35,982 - WARNING - Frame skipped due to slow recognition: 0.228s
+2025-05-28 13:06:36,212 - WARNING - Frame skipped due to slow recognition: 0.224s
+2025-05-28 13:06:36,237 - INFO - 192.168.4.1 - - [28/May/2025 13:06:36] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:36,440 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:36,666 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:36,928 - WARNING - Frame skipped due to slow recognition: 0.258s
+2025-05-28 13:06:37,155 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:37,382 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:37,608 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:37,835 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:38,061 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:38,235 - INFO - 192.168.4.1 - - [28/May/2025 13:06:38] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:38,289 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:38,518 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:38,744 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:38,970 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:39,195 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:39,422 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:39,650 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:39,876 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:40,102 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:40,105 - INFO - Logs saved successfully
+2025-05-28 13:06:40,235 - INFO - 192.168.4.1 - - [28/May/2025 13:06:40] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:40,329 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:40,556 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:40,792 - WARNING - Frame skipped due to slow recognition: 0.230s
+2025-05-28 13:06:41,017 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:41,243 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:41,469 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:41,696 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:41,923 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:42,149 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:42,233 - INFO - 192.168.4.1 - - [28/May/2025 13:06:42] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:42,376 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:42,603 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:42,830 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:43,056 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:43,282 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:43,507 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:43,733 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:43,959 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:44,185 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:44,235 - INFO - 192.168.4.1 - - [28/May/2025 13:06:44] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:44,411 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:44,637 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:44,862 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:45,089 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:45,314 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:45,318 - INFO - Logs saved successfully
+2025-05-28 13:06:45,543 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:45,768 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:45,994 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:46,220 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:46,238 - INFO - 192.168.4.1 - - [28/May/2025 13:06:46] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:46,451 - WARNING - Frame skipped due to slow recognition: 0.226s
+2025-05-28 13:06:46,676 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:46,902 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:47,127 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:47,353 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:47,577 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:47,803 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:48,028 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:48,237 - INFO - 192.168.4.1 - - [28/May/2025 13:06:48] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:48,255 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:48,480 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:48,707 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:48,934 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:49,162 - WARNING - Frame skipped due to slow recognition: 0.224s
+2025-05-28 13:06:49,388 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:49,614 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:49,839 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:50,065 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:50,236 - INFO - 192.168.4.1 - - [28/May/2025 13:06:50] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:50,290 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:50,515 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:50,518 - INFO - Logs saved successfully
+2025-05-28 13:06:50,741 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:50,968 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:51,195 - WARNING - Frame skipped due to slow recognition: 0.223s
+2025-05-28 13:06:51,421 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:51,646 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:51,871 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:52,096 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:52,236 - INFO - 192.168.4.1 - - [28/May/2025 13:06:52] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:52,322 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:52,548 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:52,774 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:53,000 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:53,225 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:53,450 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:53,675 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:53,899 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:54,125 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:54,350 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:54,575 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:54,799 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:55,024 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:55,234 - INFO - 192.168.4.1 - - [28/May/2025 13:06:55] "GET /recognized.json HTTP/1.1" 200 -
+2025-05-28 13:06:55,248 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:55,474 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:55,697 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:55,700 - INFO - Logs saved successfully
+2025-05-28 13:06:55,924 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:56,148 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:56,373 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:56,599 - WARNING - Frame skipped due to slow recognition: 0.222s
+2025-05-28 13:06:56,824 - WARNING - Frame skipped due to slow recognition: 0.220s
+2025-05-28 13:06:57,049 - WARNING - Frame skipped due to slow recognition: 0.221s
+2025-05-28 13:06:57,053 - INFO - Cleaning up resources...
+2025-05-28 13:06:57,076 - INFO - Camera stopped
+2025-05-28 13:06:57,077 - INFO - Camera stopped
+2025-05-28 13:06:57,081 - INFO - Logs saved successfully
+2025-05-28 13:06:57,082 - INFO - Cleaning up resources...
+2025-05-28 13:06:57,084 - INFO - Camera stopped
+2025-05-28 13:06:57,091 - INFO - Logs saved successfully
+2025-05-28 13:06:57,092 - INFO - Cleaning up resources...
+2025-05-28 13:06:57,093 - INFO - Camera stopped
+2025-05-28 13:06:57,097 - INFO - Logs saved successfully
+2025-05-28 13:06:57,281 - WARNING - Frame skipped due to slow recognition: 0.226s
+2025-05-28 13:06:57,480 - INFO - Camera closed successfully.
