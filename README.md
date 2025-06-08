@@ -1,130 +1,154 @@
+# IpBeep - Smart Attendance System
 
-# 📡 IpBeep – Smart Attendance System
-
-IpBeep is a real-time attendance tracking system using a Raspberry Pi, facial recognition, and Firebase integration. Designed for university classrooms, it ensures accurate student presence logging via both MAC detection and face verification.
-
----
-
-## 🚀 Features
-
-- Raspberry Pi as a secure Wi-Fi hotspot (captive portal)
-- Student registration via local web interface
-- MAC address tracking + Face recognition
-- Instructor control panel with Flask GUI
-- Real-time logs stored in `JSON` and synced to Firebase Firestore
-- Configurable session via the web + Firestore
+IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-based connectivity logging with real-time face recognition. It provides an automated and verifiable attendance system designed for classrooms using a combination of a local Flask-based UI and Firebase for cloud data sync.
 
 ---
 
-## 📂 Folder Structure
+## 🔧 How the System Works
 
-```
-.
-├── class_control.py          # Flask GUI for instructors (main controller)
-├── full_log.py               # Tracks student presence via MAC
-├── run_recognition_stream.py # Runs face recognition and updates JSON
-├── firebase_key.json         # 🔐 Firebase secret key (not committed)
-├── session_config.json       # Holds course_id, session_id, threshold
-├── logs/                     # Stores JSON session logs
-├── static/                   # Static resources for the Flask app
-├── templates/                # (optional if using template files)
-└── .gitignore                # Lists ignored files
-```
+1. **Hotspot Creation**: Raspberry Pi creates a Wi-Fi hotspot (SSID: `IpBeep-Network`) using `hostapd` and `dnsmasq`.
+2. **Student Registration**: Students connect to the hotspot and access a captive portal (`http://192.168.4.1:8080`) to register. Info such as name, student ID, IP, MAC, and photo are saved in `attendance_submissions.csv`.
+3. **Session Configuration**:
+    - Instructor writes session info (course ID, session ID, threshold) to Firebase Firestore.
+    - Pi UI has a "Load Info" button that fetches session config from Firestore and writes it locally to `session_config.json`.
+4. **Attendance Tracking**:
+    - When “Start Session” is clicked, MAC address tracking (`full_log.py`) begins.
+    - When “Start Face Recognition” is clicked, MAC tracking stops and face recognition (`run_recognition.py`) begins.
+5. **Log Upload**:
+    - After “End Session”, logs are finalized and synced to Firebase under the correct `sessions/{course_session}` document.
 
 ---
 
-## 🔐 .gitignore Highlights
+## 🧠 Project Highlights
+
+- 🔐 **Dual Validation**: Tracks both MAC address presence and facial recognition.
+- 📡 **No Internet Needed**: Works fully offline using the Pi hotspot and portal.
+- 🧠 **Face Recognition**: Uses stored face encodings and Picamera2 + OpenCV.
+- 🔥 **Firebase Sync**: All logs and session metadata are pushed to Firestore.
+- 🎛 **Control Panel**: Local touchscreen-friendly Flask UI (`class_control.py`).
+- 📁 **Session Config**: Lightweight format with only `course_id`, `session_id`, `threshold_minutes`.
+- 🌐 **Dashboard (future)**: Instructor web interface with session upload control and reporting.
+
+---
+
+## 🗂 Directory and File Overview
+
+| File / Folder                | Description |
+|-----------------------------|-------------|
+| `class_control.py`          | Flask UI for managing the session (Start, Stop, Face Rec, Firebase sync). |
+| `portal.py`                 | Captive portal for student registration. |
+| `full_log.py`               | Tracks presence based on IP/MAC during session time. |
+| `run_recognition.py`        | Recognizes faces from live camera feed; updates JSON log. |
+| `encode_faces.py`           | Converts captured student images into facial encodings. |
+| `firebase_key.json`         | 🔐 Secret Firebase service key (excluded from repo). |
+| `session_config.json`       | Local config written from Firestore (course_id, session_id, threshold). |
+| `logs/`                     | Folder containing per-course logs for each session. |
+| `captures/`                 | Folder where student registration photos are saved. |
+| `registration.json`         | Local copy of registered students. |
+| `attendance_submissions.csv`| Registration submissions stored from portal. |
+| `Config/`                   | Backup of modified Pi config files (dhcpcd.conf, dnsmasq.conf, hostapd.conf). |
+| `sync_to_firebase.py`       | Pushes session log JSON file to Firestore. |
+| `requirements.txt`          | Python libraries required. |
+| `start_hotspot.sh`          | Shell script to start the hotspot manually. |
+| `encodings.pkl`             | Binary file storing face encodings. |
+
+---
+
+## 📂 Firebase Structure
+
+### 🔹 Collection: `sessions`
+- **Document ID**: e.g. `CS2_12`
+- Fields:
+  - `course_id`: `"CS2"`
+  - `session_id`: `"12"`
+  - `students`: Map of student_id → student attendance info
+  - Each student entry includes:
+    - `mac`, `ip`, `name`, `total_minutes`, `attended`, `face`, `threshold`, `start`, `last_seen`
+
+### 🔹 Collection: `session_config`
+- Each document represents a new session setup from the website.
+- Fields:
+  - `course_id`: `"CS2"`
+  - `session_id`: `"12"`
+  - `threshold_minutes`: `5`
+
+### 🔹 Collection: `instructors`
+- Each document ID is the instructor's email or unique key.
+- Fields:
+  - `name`
+  - `email`
+  - `courses`: array of course codes, e.g., `["CS2", "CS3"]`
+
+---
+
+## ⚙ Raspberry Pi Config Files
+
+Stored in `Config/` folder for documentation:
+- `dhcpcd.conf`:
+  ```
+  interface wlan0
+      static ip_address=192.168.4.1/24
+      nohook wpa_supplicant
+  ```
+- `dnsmasq.conf`:
+  ```
+  interface=wlan0
+  dhcp-range=192.168.4.10,192.168.4.50,255.255.255.0,24h
+  address=/#/192.168.4.1
+  ```
+- `hostapd.conf`:
+  ```
+  interface=wlan0
+  driver=nl80211
+  ssid=IpBeep-Network
+  hw_mode=g
+  channel=6
+  wmm_enabled=0
+  macaddr_acl=0
+  auth_algs=1
+  ignore_broadcast_ssid=0
+  ```
+
+---
+
+## 🚀 Setup Guide
 
 ```bash
-__pycache__/
-*.pyc
-venv/
-firebase_key.json
-logs/
-*.log
-captures/
-*.csv
-track_connections.py
-run_recognition.py
-fast_reup.sh
+# Clone the project
+git clone https://github.com/HaithamGhaith/IpBeep-PI-Side.git
+cd IpBeep-PI-Side
+
+# Install system dependencies
+sudo apt-get update
+sudo apt-get install hostapd dnsmasq
+
+# Install Python libraries
+pip install -r requirements.txt
 ```
 
----
-
-## 🧪 How It Works
-
-1. Instructor logs in via website and writes session config (`course_id`, `session_id`, `threshold_minutes`) to Firestore.
-2. Instructor presses **“Fetch Config”** on the Pi UI → loads session_config.json from Firestore.
-3. Start Session:
-   - full_log.py starts tracking connected students.
-4. Start Face Recognition:
-   - full_log.py stops.
-   - run_recognition_stream.py matches faces with pre-encoded data.
-5. End Session:
-   - face recognition stops gracefully.
-   - Final JSON log is uploaded to Firestore `FlatDesign` collection.
+Place your `firebase_key.json` in the root directory.
 
 ---
 
-## 🔥 Firestore Structure
+## 🧪 Local Testing
 
-- **Collection: `FlatDesign`**
+- To test camera:
+  ```bash
+  python3 test_camera.py
   ```
-  Document ID: <course_id>_<session_id>
-  {
-    course_id: "CS101",
-    session_id: "S1",
-    timestamp: "...",
-    students: {
-      "20201001": {
-        student_id: "20201001",
-        start: "...",
-        total_time: ...,
-        recognized: true,
-        ...
-      },
-      ...
-    }
-  }
-  ```
-
-- **Collection: `session_config`**
-  ```
-  Document ID: latest
-  {
-    course_id: "CS101",
-    session_id: "S1",
-    threshold_minutes: 30
-  }
+- To encode faces after registration:
+  ```bash
+  python3 encode_faces.py
   ```
 
 ---
 
-## 🛡️ Security Notes
+## 📌 Notes
 
-- `firebase_key.json` is **never committed**
-- Local network only (Pi IP and hotspot only)
-- All sessions are managed by physical button presses to prevent abuse
-
----
-
-## ✅ To-Do / Future
-
-- Instructor dashboard UI (remote control sessions via web)
-- Session analytics charts
-- Multi-Pi classroom support
-- Sync face encodings from Firebase Storage
+- All Firebase secrets and `.pkl` files are excluded via `.gitignore`.
+- `Config/` folder is for documentation only — not active unless copied to `/etc/...`.
+- Recommended commit: `Initial full project upload with control panel, portal, and recognition modules.`
 
 ---
 
-## 👨‍💻 Author
-
-Made by **HaithamGhaith X Khalid Barham** @ JUST IEEE – 2025 🧠💡
-
----
-
-## 📜 License
-
-MIT License – use freely with credit.
-
-
+Built by Haitham Ghaith — 2025
