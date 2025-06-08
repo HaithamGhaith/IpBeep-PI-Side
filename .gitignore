@@ -1,0 +1,19 @@
+# Ignore Python junk
+__pycache__/
+*.pyc
+
+# Ignore virtual environments
+venv/
+
+# Ignore Firebase secrets
+firebase_key.json
+
+# Ignore local logs and runtime files
+*.log
+captures/
+trash/
+logs/
+*.csv
+
+# Ignore system files
+.DS_Store
