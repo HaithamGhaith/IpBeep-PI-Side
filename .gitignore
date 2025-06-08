@@ -13,6 +13,8 @@ firebase_key.json
 captures/
 trash/
 logs/
+static/
+
 *.csv
 
 # Ignore system files
