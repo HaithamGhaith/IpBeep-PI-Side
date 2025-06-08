@@ -119,7 +119,7 @@ fast_reup.sh
 
 ## 👨‍💻 Author
 
-Made by **Haitham** @ JUST IEEE – 2025 🧠💡
+Made by **HaithamGhaith X Khalid Barham** @ JUST IEEE – 2025 🧠💡
 
 ---
 
