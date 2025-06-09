@@ -151,4 +151,4 @@ Place your `firebase_key.json` in the root directory.
 
 ---
 
-Built by Haitham Ghaith — 2025
+Built by Haitham Ghaith & Khalid Barham — 2025
