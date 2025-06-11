@@ -27,7 +27,6 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
 - 🔥 **Firebase Sync**: All logs and session metadata are pushed to Firestore.
 - 🎛 **Control Panel**: Local touchscreen-friendly Flask UI (`class_control.py`).
 - 📁 **Session Config**: Lightweight format with only `course_id`, `session_id`, `threshold_minutes`.
-- 🌐 **Dashboard (future)**: Instructor web interface with session upload control and reporting.
 
 ---
 
@@ -38,7 +37,7 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
 | `class_control.py`          | Flask UI for managing the session (Start, Stop, Face Rec, Firebase sync). |
 | `portal.py`                 | Captive portal for student registration. |
 | `full_log.py`               | Tracks presence based on IP/MAC during session time. |
-| `run_recognition.py`        | Recognizes faces from live camera feed; updates JSON log. |
+| `run_recognition_stream.py` | Recognizes faces from live camera feed; updates JSON log. |
 | `encode_faces.py`           | Converts captured student images into facial encodings. |
 | `firebase_key.json`         | 🔐 Secret Firebase service key (excluded from repo). |
 | `session_config.json`       | Local config written from Firestore (course_id, session_id, threshold). |
