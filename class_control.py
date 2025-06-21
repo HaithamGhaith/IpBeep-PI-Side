@@ -8,12 +8,7 @@ import time
 from datetime import datetime
 
 # Firebase setup for logging
-import firebase_admin
-from firebase_admin import credentials, firestore
-
-cred = credentials.Certificate("firebase_key.json")
-firebase_admin.initialize_app(cred)
-db = firestore.client()
+from firebase_service import upload_session_log, fetch_and_save_session_config
 
 app = Flask(__name__)
 
@@ -633,59 +628,15 @@ def end_class():
     try:
         with open(SESSION_CONFIG_FILE) as f:
             config = json.load(f)
-
-        course_id = config["course_id"]
-        session_id = config["session_id"]
-        session_file = f"{course_id}_{session_id}.json"
-        session_path = os.path.join("logs", course_id, session_file)
-
-        with open(session_path, "r") as f:
-            session_data = json.load(f)
-
-        # Convert students list to map
-        student_map = {}
-        if isinstance(session_data, list):
-            for student in session_data:
-                student_id = student.get("student_id", "unknown")
-                student_map[student_id] = student
-        else:
-            student_map = session_data  # if it's already a dict
-
-        # Upload to the 'Test' collection (flat format)
-        doc_id = f"{course_id}_{session_id}"
-        db.collection("FlatDesign").document(doc_id).set({
-            "course_id": course_id,
-            "session_id": session_id,
-            "timestamp": datetime.now().isoformat(),
-            "students": student_map
-        })
-
-        print(f"✅ Uploaded session to Test/{doc_id} in Firestore.")
-
+        upload_session_log(config["course_id"], config["session_id"])
     except Exception as e:
-        print(f"❌ Error uploading to Firebase: {e}")
+        print(f"❌ Error reading session config for Firebase upload: {e}")
 
     return redirect(url_for("home"))
 
 @app.route("/fetch_config", methods=["POST"])
 def fetch_config():
-    try:
-        # Fetch config from Firestore
-        config_ref = db.collection("Session_config").document("details")
-        config_doc = config_ref.get()
-        
-        if config_doc.exists:
-            config_data = config_doc.to_dict()
-            # Save to local file
-            with open(SESSION_CONFIG_FILE, "w") as f:
-                json.dump(config_data, f)
-            print("[INFO] Successfully fetched and saved config from Firestore")
-        else:
-            print("[WARNING] No config found in Firestore")
-            
-    except Exception as e:
-        print(f"[ERROR] Failed to fetch config: {e}")
-        
+    fetch_and_save_session_config()
     return redirect(url_for("home"))
 
 @app.route("/status")

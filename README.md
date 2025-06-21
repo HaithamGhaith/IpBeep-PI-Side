@@ -12,10 +12,10 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
     - Instructor writes session info (course ID, session ID, threshold) to Firebase Firestore.
     - Pi UI has a "Load Info" button that fetches session config from Firestore and writes it locally to `session_config.json`.
 4. **Attendance Tracking**:
-    - When “Start Session” is clicked, MAC address tracking (`full_log.py`) begins.
-    - When “Start Face Recognition” is clicked, MAC tracking stops and face recognition (`run_recognition_stream.py`) begins.
+    - When "Start Session" is clicked, MAC address tracking (`full_log.py`) begins.
+    - When "Start Face Recognition" is clicked, MAC tracking stops and face recognition (`run_recognition_stream.py`) begins.
 5. **Log Upload**:
-    - After “End Session”, logs are finalized and synced to Firebase under the correct `sessions/{course_session}` document.
+    - After "End Session", logs are finalized and synced to Firebase under the correct `sessions/{course_session}` document.
 
 ---
 
@@ -47,6 +47,20 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
   </tr>
 </table>
 
+---
+
+## 🏗️ Architectural Refactoring
+
+This project recently underwent a significant refactoring to improve its structure, maintainability, and clarity. The key changes include:
+
+- **Decoupling of Services**: The monolithic `class_control.py` was broken down by extracting specific responsibilities into dedicated modules.
+  - **Firebase Service**: All Firestore database operations (uploading logs, fetching configurations) were moved into a new `firebase_service.py`. This separates the core application logic from the database implementation.
+- **Elimination of Redundant & Obsolete Code**: The codebase was cleaned by removing unused and confusing scripts.
+  - Deleted `sync_to_firebase.py` as its functionality is now handled by `firebase_service.py`.
+  - Deleted `run_recognition.py` and `track_connections.py` which were obsolete or for testing purposes.
+  - Removed the `trash/` directory containing old test assets.
+
+This refactoring makes the project easier to understand, debug, and extend in the future.
 
 ---
 
@@ -54,9 +68,10 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
 
 | File / Folder                | Description |
 |-----------------------------|-------------|
-| `class_control.py`          | Flask UI for managing the session (Start, Stop, Face Rec, Firebase sync). |
+| `class_control.py`          | Flask UI for managing the session (Start, Stop, Face Rec). Delegates backend tasks. |
+| `firebase_service.py`       | Handles all communication with Firebase Firestore (uploading logs, fetching configs). |
 | `portal.py`                 | Captive portal for student registration. |
-| `full_log.py`               | Tracks presence based on IP/MAC during session time. |
+| `full_log.py`               | Tracks student attendance based on MAC address presence. |
 | `run_recognition_stream.py` | Recognizes faces from live camera feed; updates JSON log. |
 | `encode_faces.py`           | Converts captured student images into facial encodings. |
 | `firebase_key.json`         | 🔐 Secret Firebase service key (excluded from repo). |
@@ -66,7 +81,6 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
 | `registration.json`         | Local copy of registered students. |
 | `attendance_submissions.csv`| Registration submissions stored from portal. |
 | `Config/`                   | Backup of modified Pi config files (dhcpcd.conf, dnsmasq.conf, hostapd.conf). |
-| `sync_to_firebase.py`       | Pushes session log JSON file to Firestore. |
 | `requirements.txt`          | Python libraries required. |
 | `start_hotspot.sh`          | Shell script to start the hotspot manually. |
 | `encodings.pkl`             | Binary file storing face encodings. |
