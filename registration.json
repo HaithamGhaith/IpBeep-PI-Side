@@ -30,5 +30,13 @@
     "mac": "9e:83:53:b7:eb:32",
     "photo_path": "captures/33069_20250525-061240.jpg",
     "timestamp": "20250525-061240"
+  },
+  {
+    "name": "khalid barham",
+    "student_id": "152044",
+    "ip": "192.168.4.41",
+    "mac": "9e:b0:f8:d1:22:97",
+    "photo_path": "captures/152044_20250611-224222.jpg",
+    "timestamp": "20250611-224222"
   }
 ]
