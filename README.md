@@ -30,6 +30,25 @@ IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-bas
 
 ---
 
+## 🖥 UI Screenshots
+
+### 🔹 Home Screen (Before Starting)
+![Home](assets/Screenshots/Home.png)
+
+### 🔹 Start Portal View
+![Start Portal](assets/Screenshots/Start_portal.png)
+
+### 🔹 Session Tracking (MAC Logging)
+![Start Tracking](assets/Screenshots/Start_tracking.png)
+
+### 🔹 Start Face Recognition
+![Start Recognition](assets/Screenshots/Start_recognition.png)
+
+### 🔹 Recognized Students
+![Recognized](assets/Screenshots/Recognized.png)
+
+---
+
 ## 🗂 Directory and File Overview
 
 | File / Folder                | Description |
