@@ -1,5 +1,8 @@
 # 🌐 IpBeep - Smart Attendance System
 
+> 🌐 Looking for the web interface?  
+> 👉 Check out the companion dashboard repo: [IpBeep Web Dashboard](https://github.com/HaithamGhaith/IpBeep)
+
 IpBeep is a Raspberry Pi-powered smart attendance system that combines Wi-Fi-based connectivity logging with real-time face recognition. It provides an automated and verifiable attendance system designed for classrooms using a combination of a local Flask-based UI and Firebase for cloud data sync.
 
 ---
