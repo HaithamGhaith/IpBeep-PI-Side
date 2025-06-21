@@ -71,22 +71,24 @@ This refactoring makes the project easier to understand, debug, and extend in th
 
 | File / Folder                | Description |
 |-----------------------------|-------------|
-| `class_control.py`          | Flask UI for managing the session (Start, Stop, Face Rec). Delegates backend tasks. |
-| `firebase_service.py`       | Handles all communication with Firebase Firestore (uploading logs, fetching configs). |
-| `portal.py`                 | Captive portal for student registration. |
-| `full_log.py`               | Tracks student attendance based on MAC address presence. |
-| `run_recognition_stream.py` | Recognizes faces from live camera feed; updates JSON log. |
-| `encode_faces.py`           | Converts captured student images into facial encodings. |
-| `firebase_key.json`         | 🔐 Secret Firebase service key (excluded from repo). |
-| `session_config.json`       | Local config written from Firestore (course_id, session_id, threshold). |
-| `logs/`                     | Folder containing per-course logs for each session. |
-| `captures/`                 | Folder where student registration photos are saved. |
-| `registration.json`         | Local copy of registered students. |
-| `attendance_submissions.csv`| Registration submissions stored from portal. |
-| `Config/`                   | Backup of modified Pi config files (dhcpcd.conf, dnsmasq.conf, hostapd.conf). |
-| `requirements.txt`          | Python libraries required. |
-| `start_hotspot.sh`          | Shell script to start the hotspot manually. |
-| `encodings.pkl`             | Binary file storing face encodings. |
+| `class_control.py`          | Main Flask UI controller for managing session flow (Start, Stop, Face Rec). |
+| `firebase_service.py`       | Handles Firebase Firestore operations (fetching configs, uploading logs). |
+| `portal.py`                 | Captive portal Flask app for student registration via the Pi hotspot. |
+| `full_log.py`               | Tracks MAC address presence and attendance duration during the session. |
+| `run_recognition_stream.py` | Real-time face recognition script using Picamera2 and OpenCV. |
+| `encode_faces.py`           | Converts student photos into face encodings and stores them in `encodings.pkl`. |
+| `test_camera.py`            | Simple camera test script for debugging Picamera2 functionality. |
+| `session_config.json`       | Session metadata file generated from Firestore (`course_id`, `session_id`, `threshold`). |
+| `registration.json`         | Stores registered student data locally for quick access. |
+| `attendance_submissions.csv`| Raw CSV output of the registration portal form. |
+| `encodings.pkl`             | Pickled dictionary of known face encodings used in recognition. |
+| `logs/`                     | Session-wise JSON log files (`<course>/<session>.json`) saved after tracking/recognition. |
+| `captures/`                 | Folder storing student registration images. |
+| `assets/`                   | UI images, architecture diagrams, or screenshots (optional). |
+| `Config/`                   | Archived config files for Raspberry Pi networking (hostapd, dnsmasq, dhcpcd). |
+| `start_hotspot.sh`          | Shell script for initializing the Pi hotspot manually. |
+| `requirements.txt`          | Python dependencies used across all scripts. |
+| `.gitignore`                | Ignores sensitive files (like `firebase_key.json` and `.pkl`) during Git pushes. |
 
 ---
 
